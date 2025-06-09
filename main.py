@@ -47,6 +47,10 @@ DaysOnMarket: <column name>
             result[key.strip()] = value.strip()
     return result
 
+@app.get("/")
+def root():
+    return {"message": "FastAPI CSV Plot Service is running. Visit /docs to test the API."}
+
 
 @app.post("/plot")
 async def plot_graph(file: UploadFile = File(...)):
